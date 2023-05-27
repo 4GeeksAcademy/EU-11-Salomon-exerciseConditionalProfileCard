@@ -23,7 +23,7 @@ import "../style/index.css";
     }
  */
 function render(variables = {}) {
-  console.log("These are the current variables: ", variables); //print on the console
+  console.log("These are the current variables: ", variablgit es); //print on the console
   // here we ask the logical questions to make decisions on how to build the html
   // if includeCover==false then we reset the cover code without the <img> tag to make the cover transparent.
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
@@ -33,14 +33,14 @@ function render(variables = {}) {
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
+          <h1>${variables.name} ${variables.lastname}</h1>
+          <h2>${variables.role}</h2>
+          <h3>${variables.city} ${variables.country}</h3>
           <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://twitter.com/francodemedici"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://github.com/SalomonFranco"><i class="fab fa-github"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/salomon-franco/"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://instagram.com/salomonfranco"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
@@ -54,21 +54,23 @@ window.onload = function() {
     // if includeCover is true the algorithm should
     includeCover: true,
     // this is the url of the image that will used as background for the profile cover
-    background: "https://images.unsplash.com/photo-1511974035430-5de47d3b95da",
+    background:
+      "https://images.unsplash.com/photo-1619410283995-43d9134e7656?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
     // this is the url for the profile avatar
-    avatarURL: "https://randomuser.me/api/portraits/women/42.jpg",
+    avatarURL:
+      "https://media.licdn.com/dms/image/C4D03AQFbEH1L37P_0Q/profile-displayphoto-shrink_800_800/0/1662855439218?e=2147483647&v=beta&t=Jvsz7Op0hPdbA371CcKBd5dwAuPfDGu34jywSUFfDAM",
     // social media bar position (left or right)
     socialMediaPosition: "position-left",
     // social media usernames
-    twitter: null,
-    github: "alesanchezr",
-    linkedin: null,
-    instagram: null,
-    name: null,
-    lastname: null,
-    role: null,
-    country: null,
-    city: null
+    twitter: "@francodemedici",
+    github: "SalomonFranco",
+    linkedin: "salomon-franco",
+    instagram: "Salomonfranco",
+    name: "Salomon",
+    lastname: "Franco",
+    role: "Full Stack Developer",
+    country: "Portugal",
+    city: "Porto"
   };
   render(window.variables); //render the card for the first time
 
@@ -85,7 +87,7 @@ window.onload = function() {
           : this.value == "false"
           ? false
           : this.value;
-      render(Object.assign(window.variables, values)); // render again the card with new valus
+      render(Object.assign(window.variables, values)); // render again the card with new values
     });
   });
 };
